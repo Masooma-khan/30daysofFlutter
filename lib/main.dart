@@ -1,7 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-
+import 'package:flutter_application_2/pages/login_page.dart';
+import 'pages/home_page.dart';
 void main() {
   runApp(MyApp());
 }
@@ -9,17 +8,17 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    int days = 30;
-    String name = "Codepur";
-   
     return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Container(
-            child: Text("Welcome $days days of HadiTech"),
-          ),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepOrange),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark
         ),
-      ),
+        routes: {
+          "/":(context) => LoginPage(),
+           "/home":(context) => HomePage(),
+          "/Login": (context) => LoginPage()
+        },
     );
   }
 }
